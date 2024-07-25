@@ -37,24 +37,14 @@ interface Response {
 }
 
 interface Task {
-  task: [
-    {
-      _id: string;
-      taskTitle: string;
-      taskDescription: string;
-      startDate: string;
-      endDate: string;
-      status: string;
-      userId: number;
-    }
-  ];
+  task: any
 }
-
 
 export default function SingleTask(props: Task) {
   // declarations
   // -------------
   const task = props?.task;
+
   const dispatch = useDispatch();
   const taskID = useParams();
   const navigate = useNavigate();
@@ -63,7 +53,7 @@ export default function SingleTask(props: Task) {
   // ------------------
   const [snackOpen, setSnackOpen] = useState(false);
   const [resMessage, setResMessage] = useState("");
-  
+
   // functions
   // ----------
   const handleDoneTask = async () => {
@@ -110,11 +100,10 @@ export default function SingleTask(props: Task) {
     setSnackOpen(false);
   };
 
-
   return (
     <>
       {task &&
-        task.map((task) => (
+        task.map((task:any) => (
           <Box key={task._id} minHeight={"100vh"}>
             {/* single task  */}
             <Box width={{ md: "100%", xs: "100%" }} minHeight={"100vh"}>

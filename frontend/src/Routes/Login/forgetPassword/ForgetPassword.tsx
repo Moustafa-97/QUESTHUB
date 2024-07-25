@@ -14,7 +14,7 @@ export default function ForgetPassword() {
   //
   // 1)forgetPassword
   //
-  const [forgetPassword, setForgetPassword] = useState<{ email: string }>();
+  const [forgetPassword, setForgetPassword] = useState<any>();
   //
   // 2)message snackbar
   //
@@ -30,7 +30,7 @@ export default function ForgetPassword() {
   // ---------------------
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
-    setForgetPassword((prev) => {
+    setForgetPassword((prev: any) => {
       return { ...prev, [name]: value };
     });
   };

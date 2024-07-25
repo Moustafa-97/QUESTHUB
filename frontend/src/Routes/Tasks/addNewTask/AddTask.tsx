@@ -1,6 +1,6 @@
 import { Box, Button, Snackbar, TextField } from "@mui/material";
 import axios from "axios";
-import React, { SetStateAction, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
@@ -68,7 +68,7 @@ export default function AddTask() {
     });
   };
   const handleChangeStartDate = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement> | any
   ): void => {
     // const {  value } = e.target;
     setNewTask((prev) => {
@@ -76,7 +76,7 @@ export default function AddTask() {
     });
   };
   const handleChangeEndDate = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement> | any
   ): void => {
     // const {  value } = e.target;
     setNewTask((prev) => {

@@ -325,7 +325,7 @@ export default function Header(props: Props) {
                 <Button
                   key={page}
                   onClick={() => {
-                    navigate(`/${page.toLowerCase().replace(" ", "")}`);
+                    navigate(`/${page?.toLowerCase().replace(" ", "")}`);
                     handleCloseOptionMenu();
                   }}
                   sx={{ my: 2, color: "white", display: "block" }}
@@ -363,7 +363,7 @@ export default function Header(props: Props) {
                     sx={{ display: { xs: "block", md: "none" } }}
                     key={page}
                     onClick={() => {
-                      navigate(`/${page.toLowerCase().replace(" ", "")}`);
+                      navigate(`/${page?.toLowerCase().replace(" ", "")}`);
                       handleCloseOptionMenu();
                     }}
                   >
@@ -379,7 +379,7 @@ export default function Header(props: Props) {
                       width: "100%",
                     }}
                     key={Math.random()}
-                    onClick={(e) => {
+                    onClick={() => {
                       let id = option?.props.id;
                       if (id === "login") {
                         navigate("/login");

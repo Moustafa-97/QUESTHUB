@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, styled } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import { Visibility } from "@mui/icons-material";
@@ -57,7 +57,7 @@ export default function Login() {
   // snakbar status
   const [snackOpen, setSnackOpen] = useState(false);
   // snakbar message
-  const [resMessage, setResMessage] = useState(false);
+  const [resMessage, setResMessage] = useState("");
   // password values
   const [values, setValues] = React.useState<State>({
     showPassword: false,
@@ -115,7 +115,6 @@ export default function Login() {
       setSnackOpen(true);
     }
   };
-
 
   //
   //  mui snackbar settings

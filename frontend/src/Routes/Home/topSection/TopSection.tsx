@@ -6,14 +6,13 @@ import ButtonComp from "../../../components/Buttons/ButtonComp";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 export default function TopSection() {
-
-  const initialVisitTime = localStorage.getItem("initialVisitTime");
+  const initialVisitTime: any = localStorage?.getItem("initialVisitTime");
   if (!initialVisitTime) {
-    const initialVisitTime: Date = new Date().getTime();
+    const initialVisitTime: any = new Date().getTime();
     localStorage.setItem("initialVisitTime", initialVisitTime);
   }
   // get initial time
-  const [nowDate, setNowDate] = useState<Date>(new Date());
+  const [nowDate, setNowDate] = useState<any>(new Date());
   useEffect(() => {
     const intervalId = setInterval(() => {
       setNowDate(new Date().getTime());
@@ -25,14 +24,12 @@ export default function TopSection() {
   const seconds = Math.floor(timeDifference / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
 
   // Clear the initialVisitTime
   window.onunload = () => {
     localStorage.removeItem("initialVisitTime");
   };
   const navigate: NavigateFunction = useNavigate();
-
 
   return (
     <>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const useThemeDetector = () => {
-  const modeHistory: string | null = localStorage.getItem("themeMode");
   
   const [isDarkTheme, setIsDarkTheme] = useState(
     () => window.matchMedia("(prefers-color-scheme: dark)").matches

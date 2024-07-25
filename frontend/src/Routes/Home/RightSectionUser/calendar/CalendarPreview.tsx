@@ -6,12 +6,8 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { DayCalendarSkeleton } from "@mui/x-date-pickers/DayCalendarSkeleton";
 import "react-calendar/dist/Calendar.css";
 import Badge from "@mui/material/Badge";
-import dayjs, { Dayjs } from "dayjs";
-import {
-  PickersDayProps,
-  PickersDay,
-} from "@mui/x-date-pickers/PickersDay/PickersDay";
-import React from "react";
+import dayjs from "dayjs";
+import { PickersDay } from "@mui/x-date-pickers";
 import { DoneAll } from "@mui/icons-material";
 
 interface Props {
@@ -31,7 +27,7 @@ export default function CalendarPreview(props: Props) {
     });
 
   // convert date on calendar
-  const formattedDate = (e: Dayjs) => {
+  const formattedDate = (e: any) => {
     return `${e.getFullYear()}-${padZero(e.getMonth() + 1)}-${padZero(
       e.getDate()
     )}`;
@@ -41,7 +37,7 @@ export default function CalendarPreview(props: Props) {
     return (num < 10 ? "0" : "") + num;
   }
 
-  const ServerDay: React.FC<PickersDayProps> = (props) => {
+  const ServerDay: any = (props: any) => {
     const { formattedDates = [], day, outsideCurrentMonth, ...other } = props;
 
     const isSelected =
@@ -63,9 +59,10 @@ export default function CalendarPreview(props: Props) {
   };
 
   const [value, setValue] = useState("");
-  
+  console.log(value);
 
-  const today = props.focus.length===1 ? dayjs(props.focus.toString()) : dayjs();
+  const today =
+    props.focus.length === 1 ? dayjs(props.focus.toString()) : dayjs();
 
   // calendar
   const card = (

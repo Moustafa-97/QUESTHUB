@@ -1,8 +1,7 @@
-import { Edit } from "@mui/icons-material";
+// import { Edit } from "@mui/icons-material";
 import { Avatar, Box, Button, CardActions, Typography } from "@mui/material";
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import "../Home/RightSectionUser/profile/profileStyle.css";
 import TaskCard from "../../components/TasksCard/TaskCard";
 import { handleSelection } from "../../Redux/Tools/ProfileSectionSelector";
@@ -61,7 +60,6 @@ export default function Profile() {
   //
   // declarations
   // -------------
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const loggedUser = useSelector((state: State) => state.Login.user);
 
@@ -77,20 +75,20 @@ export default function Profile() {
   const incompletedTasks = useSelector(
     (state: Props) => state?.tasks?.incompletedTasks
   );
-  const section = useSelector((state) => state?.selectedSection?.section);
+  const section = useSelector((state: any) => state?.selectedSection?.section);
 
   //
   // Edit functions
   // ---------------
   // states
   // ---------
-  const [name, setName] = useState(false);
+  // const [name, setName] = useState(false);
   // functions
   // ----------
-  const handleEditName = (e: HTMLInputElement) => {
-    setName(!name);
-    console.log("edit name");
-  };
+  // const handleEditName = () => {
+  //   setName(!name);
+  //   console.log("edit name");
+  // };
   const handleSection = (e: HTMLInputElement) => {
     dispatch(handleSelection(e));
   };
@@ -152,22 +150,8 @@ export default function Profile() {
             alignItems={"center"}
             width={"100%"}
           >
-            {name ? (
-              <Typography
-                variant="body2"
-                component="span"
-                display={"block"}
-                color="text.primary"
-                sx={{ m: "auto", width: "95%" }}
-                fontWeight={900}
-                letterSpacing={0.7}
-                fontSize={{ md: 45, xs: 25 }}
-                fontFamily={'"Playwrite ES", cursive'}
-              >
-                {/* Moustafa Adel */}
-                {/* {loggedUser.firstName} {loggedUser.lastName} */}
-              </Typography>
-            ) : (
+            
+              
               <Typography
                 variant="body2"
                 component="span"
@@ -181,10 +165,12 @@ export default function Profile() {
               >
                 {loggedUser.firstName} {loggedUser.lastName}
               </Typography>
-            )}
-            <Button onClick={(e: HTMLInputElement) => handleEditName(e)}>
+            
+            {/* <Button
+             onClick={(e: HTMLInputElement) => handleEditName(e)}
+             >
               <Edit />
-            </Button>
+            </Button> */}
           </Box>
           {/* level */}
           <Box display={"block"} width={"100%"}>
@@ -228,7 +214,7 @@ export default function Profile() {
             {/* section select */}
             <CardActions>
               <Button
-                onClick={(e) => {
+                onClick={(e:any) => {
                   handleSection(e.target.innerText.toLowerCase());
                   console.log(e.target.innerText.toLowerCase());
                 }}
@@ -241,7 +227,7 @@ export default function Profile() {
                 Pending
               </Button>
               <Button
-                onClick={(e) => {
+                onClick={(e:any) => {
                   handleSection(e.target.innerText.toLowerCase());
                   console.log(e.target.innerText.toLowerCase());
                 }}
@@ -254,7 +240,7 @@ export default function Profile() {
                 Completed
               </Button>
               <Button
-                onClick={(e) => {
+                onClick={(e:any) => {
                   handleSection(e.target.innerText.toLowerCase());
                   console.log(e.target.innerText.toLowerCase());
                 }}

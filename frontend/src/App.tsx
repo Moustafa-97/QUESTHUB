@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { useEffect, useMemo } from "react";
 import { createTheme, CssBaseline, PaletteMode } from "@mui/material";
-import {  blueGrey, green, teal } from "@mui/material/colors";
+import { blueGrey, teal } from "@mui/material/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode } from "./Redux/Tools/ThemeMode";
 import MainApp from "./Routes/MainApp";
@@ -11,7 +11,7 @@ axios.defaults.withCredentials = true;
 
 interface RootState {
   theme: {
-    mode: string;
+    mode: PaletteMode;
   };
 }
 

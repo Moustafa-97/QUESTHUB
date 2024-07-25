@@ -47,7 +47,7 @@ export default function MainApp() {
   // -------------
   const dispatch = useDispatch();
   const isLogged = useSelector((state: logged) => state.Login.logged);
-  const tasks = useSelector((state) => state.tasks.pendingTasks).length;
+  const tasks = useSelector((state: any) => state.tasks.pendingTasks).length;
 
   //
   // userLogged handling

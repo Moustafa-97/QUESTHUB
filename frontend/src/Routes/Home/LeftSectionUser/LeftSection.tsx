@@ -5,6 +5,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  Snackbar,
   Typography,
 } from "@mui/material";
 import axios from "axios";
@@ -235,8 +236,13 @@ export default function LeftSection() {
           <Add titleAccess="Add new task" />
         </Button>
       </Box>
+      <Snackbar
+        message={resMessage}
+        autoHideDuration={2000}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        open={snackOpen}
+        onClose={() => handleClose()}
+      />
     </>
   );
 }
-
-// card===>delete/finish/explore===>title/end/start

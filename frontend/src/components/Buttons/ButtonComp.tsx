@@ -2,19 +2,14 @@ import { Button } from "@mui/material";
 import React from "react";
 
 interface Props {
-  onClick: () =>
-    | React.FormEvent<HTMLInputElement>
-    | React.FormEvent<HTMLFormElement>
-    | Promise<void>
-    | void
-    | unknown
-    | null;
+  onClick: () => any;
+
   content: string;
   mdFont: number;
   xsFont: number;
   icon: React.ReactNode | React.ReactElement | null;
 }
-export default function ButtonComp(props: Props) {
+export default function ButtonComp(props: Props | any) {
   return (
     <>
       <Button
