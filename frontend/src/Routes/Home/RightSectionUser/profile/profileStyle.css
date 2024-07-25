@@ -1,0 +1,18 @@
+.percentage {
+  height: 10px;
+  background-color: rgba(106, 106, 106, 0.203);
+  border-radius: 20%;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -o-border-radius: 20%;
+}
+.actualPercentage {
+  height: 10px;
+  background-color: rgba(239, 11, 11, 0.203);
+  border-radius: 20%;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -o-border-radius: 20%;
+}
