@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 // app.use(Routes);
 
-cors;
+// cors;
 app.use(
   cors({
     origin: ["https://questhub-ten.vercel.app" | "*"],
