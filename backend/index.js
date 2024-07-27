@@ -25,7 +25,7 @@ app.use(cookieParser());
 cors;
 app.use(
   cors({
-    origin:"questhub-ten.vercel.app" ,
+    origin: "questhub-ten.vercel.app",
     // [process.env.ORIGIN_DEPLOY, process.env.ORIGIN],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
