@@ -8,6 +8,5 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     withCredentials: true,
     httpOnly: true,
     maxAge: maxAge,
-    samesite: "none"
   });
 };
