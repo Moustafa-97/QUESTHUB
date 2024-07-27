@@ -25,7 +25,8 @@ app.use(cookieParser());
 cors;
 app.use(
   cors({
-    origin: [process.env.ORIGIN_DEPLOY, process.env.ORIGIN],
+    origin: "questhub-ten.vercel.app",
+    // [process.env.ORIGIN_DEPLOY, process.env.ORIGIN],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     optionSuccessStatus: 200,
@@ -43,5 +44,3 @@ app.use(errorHandler);
 connectDB();
 // mongoose.set("strictQuery", false);
 app.listen(PORT, () => console.log(`started on ${PORT}`));
-
-
