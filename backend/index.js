@@ -21,11 +21,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // app.use(Routes);
-
-cors;
+/*
 app.use(
   cors({
-    origin: ["https://questhub-ten.vercel.app" | "*"],
+    origin: "https://questhub-ten.vercel.app" | "*",
     // [process.env.ORIGIN_DEPLOY, process.env.ORIGIN],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -34,6 +33,9 @@ app.use(
     credentials: true,
   })
 );
+*/
+app.use(cors("*"));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
