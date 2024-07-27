@@ -109,8 +109,8 @@ export default function Header(props: Props) {
   // pages option declaration
   // -------------------------
   const pages = [
-    "My Tasks",
-    "create",
+    isLogged ? "My Tasks" : null,
+    isLogged ? "create" : null,
     isLogged ? (loggedUser.role === "admin" ? "settings" : null) : null,
   ];
   //
@@ -376,7 +376,7 @@ export default function Header(props: Props) {
                       display: "block",
                       m: "auto",
                       textAlign: "center",
-                      width: "100%",
+                      // width: "100%",
                     }}
                     key={Math.random()}
                     onClick={() => {
