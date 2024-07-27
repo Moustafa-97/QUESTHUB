@@ -43,3 +43,5 @@ app.use(errorHandler);
 connectDB();
 // mongoose.set("strictQuery", false);
 app.listen(PORT, () => console.log(`started on ${PORT}`));
+
+
