@@ -6,7 +6,7 @@
       "src": "/(.*)",
       "dest": "/",
       "headers": {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://questhub-ek4w.vercel.app/",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Accept"
       },
