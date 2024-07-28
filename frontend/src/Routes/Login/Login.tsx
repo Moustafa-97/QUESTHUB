@@ -89,12 +89,9 @@ export default function Login() {
           `${import.meta.env.VITE_API_BASE_URL}/user/login`,
           // endPoints
           // ---------
-          {
-            currentUser: userLogin,
-            // cookies::
-
-            withCredentials: true,
-          }
+          { currentUser: userLogin },
+          // cookies::
+          { withCredentials: true }
         )
         .then(async (res: response) => {
           //
