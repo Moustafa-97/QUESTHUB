@@ -38,21 +38,23 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
   next();
 });
-// app.use(cors("*"));
 
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET",
-//     "POST",
-//     "PATCH",
-//     "PUT",
-//     "DELETE"
-//   );
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//   next();
-// });
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Accept-Language, Accept-Encoding');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Max-Age', 86400);
+
+  if (req.method === 'OPTIONS') {
+    return res.status(204).send();
+  }
+
+  next();
+});
+
+
 app.use("/user", userRoutes);
 app.get("/", (req, res) => {
   res.send("server is ready");
