@@ -11,7 +11,6 @@ const userRoutes = require("./routes/route");
 // import middlewares
 const { notFound, errorHandler } = require("./middleware/ErrorMiddleware");
 const { connectDB } = require("./config/db.js");
-const session = require("express-session");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -22,8 +21,6 @@ app.use(express.urlencoded({ extended: true, parameterLimit: 50000 }));
 app.use(
   cors({
     origin: ["https://questhub-ten.vercel.app", "http://localhost:5173"],
-    // ["https://questhub-ten.vercel.app" | "*"],
-    // [process.env.ORIGIN_DEPLOY, process.env.ORIGIN],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     optionSuccessStatus: 200,
@@ -37,36 +34,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(
-  session({
-    key: process.env.USER_TOKEN,
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-
-// app.use((req, res, next) => {
-//   console.log(req.headers.origin);
-
-//   res.header("Access-Control-Allow-Origin", req.headers.origin);
-//   res.header(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, DELETE, PATCH,OPTIONS"
-//   );
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-//   );
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header("Access-Control-Max-Age", 8640000);
-
-//   if (req.method === "OPTIONS") {
-//     return res.status(204).send();
-//   }
-
-//   next();
-// });
 
 app.use("/user", userRoutes);
 app.get("/", (req, res) => {

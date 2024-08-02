@@ -79,6 +79,7 @@ module.exports.auth_user_login = async (req, res, next) => {
 
     if (userLogin) {
       GenerateUserToken(res, userLogin._id);
+      
       res.status(200).json({
         user: userLogin,
         message: "Welcome Back",
