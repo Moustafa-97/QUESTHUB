@@ -11,19 +11,17 @@ const userRoutes = require("./routes/route");
 // import middlewares
 const { notFound, errorHandler } = require("./middleware/ErrorMiddleware");
 const { connectDB } = require("./config/db.js");
+const session = require("express-session");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: true, parameterLimit: 50000 }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://questhub-ten.vercel.app",
+    origin: ["https://questhub-ten.vercel.app", "http://localhost:5173"],
     // ["https://questhub-ten.vercel.app" | "*"],
     // [process.env.ORIGIN_DEPLOY, process.env.ORIGIN],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
@@ -34,18 +32,19 @@ app.use(
   })
 );
 
-// app.use(
-//   session({
-//     secret: process.env.SECRET_KEY,
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: {
-//       maxAge: 900000,
-//       secure: true,
-//       httpOnly: true,
-//     },
-//   })
-// );
+app.use(cookieParser());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    key: process.env.USER_TOKEN,
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 // app.use((req, res, next) => {
 //   console.log(req.headers.origin);
