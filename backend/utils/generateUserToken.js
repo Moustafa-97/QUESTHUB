@@ -9,6 +9,6 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     withCredentials: true,
     httpOnly: true,
     maxAge: maxAge,
-    secure: true,
+    // secure: true,
   });
 };

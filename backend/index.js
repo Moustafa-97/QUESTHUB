@@ -14,13 +14,7 @@ const { connectDB } = require("./config/db.js");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-app.use(express.json({ limit: "100mb" }));
-app.use(express.urlencoded({ extended: true, parameterLimit: 50000 }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cookieParser());
 
-// app.use(Routes);
 
 app.use(
   cors({
@@ -29,11 +23,25 @@ app.use(
     // [process.env.ORIGIN_DEPLOY, process.env.ORIGIN],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    optionSuccessStatus: 200,
+    // optionSuccessStatus: 200,
     // for cookies::
     credentials: true,
   })
 );
+
+
+
+
+app.use(express.json({ limit: "100mb" }));
+app.use(express.urlencoded({ extended: true, parameterLimit: 50000 }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+
+// old cors
+
+
 
 app.use((req, res, next) => {
   console.log(req.headers.origin);
