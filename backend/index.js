@@ -36,18 +36,18 @@ app.use(
   })
 );
 
-app.use(
-  session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 900000, // expires in 15 minutes
-      secure: true,
-      httpOnly: true,
-    },
-  })
-);
+// app.use(
+//   session({
+//     secret: process.env.SECRET_KEY,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//       maxAge: 900000,
+//       secure: true,
+//       httpOnly: true,
+//     },
+//   })
+// );
 
 app.use((req, res, next) => {
   console.log(req.headers.origin);
