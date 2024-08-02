@@ -2,13 +2,13 @@ const jwt = require("jsonwebtoken");
 
 module.exports.GenerateUserToken = (res, ID, next) => {
   console.log("token");
-  const maxAge = 5 * 24 * 60 * 60 * 1000;
+  const maxAge = 999999999 * 24 * 60 * 60 * 1000;
   const token = jwt.sign({ ID }, process.env.SECRET_KEY, { expiresIn: maxAge });
   console.log(token);
   res.cookie(process.env.USER_TOKEN, token, {
     withCredentials: true,
     httpOnly: true,
     maxAge: maxAge,
-    // secure: true,
+    secure: true,
   });
 };

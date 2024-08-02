@@ -94,8 +94,6 @@ export default function Login() {
           { withCredentials: true }
         )
         .then(async (res: response) => {
-          console.log(res);
-          
           //
           // handle response options
           // ----------------------
@@ -108,6 +106,7 @@ export default function Login() {
           }, 2000);
         })
         .catch((err) => {
+          console.log(err);
           setResMessage("server Error");
           setSnackOpen(true);
         });
