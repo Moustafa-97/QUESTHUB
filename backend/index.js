@@ -11,7 +11,6 @@ const userRoutes = require("./routes/route");
 // import middlewares
 const { notFound, errorHandler } = require("./middleware/ErrorMiddleware");
 const { connectDB } = require("./config/db.js");
-const session = require('express-session');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -22,7 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// old cors
 app.use(
   cors({
     origin: "https://questhub-ten.vercel.app",
