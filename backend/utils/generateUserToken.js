@@ -11,8 +11,9 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     maxAge: maxAge,
     secure: true,
     httpOnly: true,
-    path: "/",
-    domain: "https://questhub-ten.vercel.app", // or your domain name (e.g., 'example.com')
-    sameSite: "strict", // or 'lax' depending on your needs
+    domain: "questhub-ten.vercel.app",
+    sameSite: "none",
   });
+
+  next();
 };

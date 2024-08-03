@@ -78,8 +78,9 @@ module.exports.auth_user_login = async (req, res, next) => {
     const userLogin = await user.login(email, password);
 
     if (userLogin) {
-      GenerateUserToken(res, userLogin._id);
       
+      GenerateUserToken(res, userLogin._id);
+
       res.status(200).json({
         user: userLogin,
         message: "Welcome Back",

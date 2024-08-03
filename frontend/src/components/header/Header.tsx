@@ -108,11 +108,13 @@ export default function Header(props: Props) {
   //
   // pages option declaration
   // -------------------------
-  const pages = [
-    isLogged ? "My Tasks" : null,
-    isLogged ? "create" : null,
-    isLogged ? (loggedUser.role === "admin" ? "settings" : null) : null,
-  ];
+  const pages = isLogged
+    ? [
+        "My Tasks",
+        "create",
+        loggedUser.role === "admin" ? "settings" : "profile",
+      ]
+    : [];
   //
   // start "navbar settings MUI" burger menu
   //-----------------------------------------

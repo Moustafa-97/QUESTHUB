@@ -230,7 +230,7 @@ export default function LeftSection() {
             boxShadow: "0px 5px 10px",
           }}
           onClick={() => {
-            navigate("/addNewTask");
+            navigate("/create");
           }}
         >
           <Add titleAccess="Add new task" />
