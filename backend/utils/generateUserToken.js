@@ -15,5 +15,4 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     sameSite: "none",
   });
 
-  next();
 };
