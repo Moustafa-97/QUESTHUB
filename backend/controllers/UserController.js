@@ -78,7 +78,6 @@ module.exports.auth_user_login = async (req, res, next) => {
     const userLogin = await user.login(email, password);
 
     if (userLogin) {
-      
       GenerateUserToken(res, userLogin._id);
 
       res.status(200).json({
@@ -123,7 +122,7 @@ module.exports.user_profile = asyncHandler(async (req, res, next) => {
 // @access Private - auth.
 // _id(token)
 module.exports.user_update_profile = asyncHandler(async (req, res, next) => {
-  const loggeduser = await user.findById(req.user._id);
+  const loggeduser = await user.findById(req.user?._id);
 
   if (loggeduser) {
     loggeduser.firstName = req.body.firstName || loggeduser.firstName;

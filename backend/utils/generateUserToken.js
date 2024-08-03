@@ -4,15 +4,12 @@ module.exports.GenerateUserToken = (res, ID, next) => {
   const maxAge = 9 * 24 * 60 * 60 * 1000;
   const token = jwt.sign({ ID }, process.env.SECRET_KEY, { expiresIn: maxAge });
 
-  console.log(token);
-
   res.cookie(process.env.USER_TOKEN, token, {
     withCredentials: true,
     maxAge: maxAge,
     secure: true,
     httpOnly: true,
-    domain: "questhub-ten.vercel.app",
+    // domain: "questhub-ten.vercel.app",
     sameSite: "none",
   });
-
 };
