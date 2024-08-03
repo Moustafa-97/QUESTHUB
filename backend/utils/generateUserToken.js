@@ -7,7 +7,7 @@ module.exports.GenerateUserToken = (res, ID, next) => {
   res.cookie(process.env.USER_TOKEN, token, {
     withCredentials: true,
     maxAge: maxAge,
-    secure: true,
+    secure: false,
     httpOnly: true,
     // domain: "questhub-ten.vercel.app",
     sameSite: "none",
