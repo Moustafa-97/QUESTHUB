@@ -10,6 +10,6 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     secure: true,
     httpOnly: true,
     domain: "questhub-ek4w.vercel.app",
-    sameSite: "lax",
+    sameSite: "strict",
   });
 };
