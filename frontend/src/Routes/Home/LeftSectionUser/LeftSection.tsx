@@ -173,13 +173,15 @@ export default function LeftSection() {
                           Dead Line: {task?.endDate?.slice(0, 10)}
                         </Typography>
                       </div>
+
                       <Typography
                         fontSize={{ md: 15, xs: 10 }}
-                        sx={{ mb: 1.5 }}
+                        sx={{ mb: 1.5, wordWrap:"break-word", wordBreak:"break-word" }}
                         color="text.secondary"
                       >
                         {task.taskDescription}
                       </Typography>
+
                       <Typography variant="body2"></Typography>
                     </CardContent>
                   </Box>

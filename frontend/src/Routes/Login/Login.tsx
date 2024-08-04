@@ -170,7 +170,7 @@ export default function Login() {
             component="form"
             noValidate
             sx={{
-              width: "40%",
+              width: "80%",
               m: "auto",
               marginTop: 8,
               display: "flex",

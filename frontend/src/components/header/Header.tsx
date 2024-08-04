@@ -198,42 +198,73 @@ export default function Header(props: Props) {
   //
   // menu options handling
   // ----------------------
-  const options = [
-    // dark/light mode
-    modeSelector === "dark" ? (
-      <LightModeIcon
-        id="lightMode"
-        sx={{ cursor: "pointer" }}
-        onClick={() => handleMode()}
-      />
-    ) : (
-      <DarkModeIcon
-        id="darkMode"
-        sx={{ cursor: "pointer" }}
-        onClick={() => handleMode()}
-      />
-    ),
-    // profile
-    isLogged ? (
-      <Person3 id="profile" onClick={() => navigate("/profile")} />
-    ) : null,
-    // account settings
-    isLogged ? (
-      <Logout
-        id="logout"
-        titleAccess="logout"
-        onClick={() => {
-          handleLogout();
-        }}
-      />
-    ) : (
-      <Login
-        id="login"
-        titleAccess="login"
-        onClick={() => navigate("/login")}
-      />
-    ),
-  ];
+  const options = isLogged
+    ? [
+        // dark/light mode
+        modeSelector === "dark" ? (
+          <LightModeIcon
+            id="lightMode"
+            sx={{ cursor: "pointer" }}
+            onClick={() => handleMode()}
+          />
+        ) : (
+          <DarkModeIcon
+            id="darkMode"
+            sx={{ cursor: "pointer" }}
+            onClick={() => handleMode()}
+          />
+        ),
+        // profile
+        <Person3 id="profile" onClick={() => navigate("/profile")} />,
+        // account settings
+        isLogged ? (
+          <Logout
+            id="logout"
+            titleAccess="logout"
+            onClick={() => {
+              handleLogout();
+            }}
+          />
+        ) : (
+          <Login
+            id="login"
+            titleAccess="login"
+            onClick={() => navigate("/login")}
+          />
+        ),
+      ]
+    : [
+        // dark/light mode
+        modeSelector === "dark" ? (
+          <LightModeIcon
+            id="lightMode"
+            sx={{ cursor: "pointer" }}
+            onClick={() => handleMode()}
+          />
+        ) : (
+          <DarkModeIcon
+            id="darkMode"
+            sx={{ cursor: "pointer" }}
+            onClick={() => handleMode()}
+          />
+        ),
+        // account settings
+        isLogged ? (
+          <Logout
+            id="logout"
+            titleAccess="logout"
+            onClick={() => {
+              handleLogout();
+            }}
+          />
+        ) : (
+          <Login
+            id="login"
+            titleAccess="login"
+            onClick={() => navigate("/login")}
+          />
+        ),
+      ];
 
   return (
     <>

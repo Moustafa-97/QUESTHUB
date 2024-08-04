@@ -153,7 +153,7 @@ export default function TaskCard(props: Props) {
                     >
                       <Typography
                         fontSize={{ md: 15, xs: 10 }}
-                        sx={{ mb: 1.5 }}
+                        sx={{ mb: 1.5, wordBreak:"break-word", wordWrap:"break-word" }}
                         color="text.secondary"
                       >
                         {task.taskDescription}
