@@ -7,7 +7,7 @@ module.exports.GenerateUserToken = (res, ID, next) => {
   res.cookie(process.env.USER_TOKEN, token, {
     withCredentials: true,
     maxAge: maxAge,
-    httpOnly: true,
+    // httpOnly: true,
     secure: true,
     sameSite: "none",
   });
