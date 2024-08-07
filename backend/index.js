@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv").config();
 const server = require("http").createServer();
-const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
@@ -28,15 +27,9 @@ app.use(
     {
       origin: "https://questhub-ten.vercel.app",
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-      // allowedHeaders: ["Content-Type", "Authorization"],
-      exposedHeaders: ["Content-Range", "X-Content-Range"],
-      preflightContinue: false,
       optionsSuccessStatus: 204,
       credentials: true,
-      
     }
-    // optionSuccessStatus: 200,
-    // for cookies::
   )
 );
 
@@ -48,5 +41,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 connectDB();
-// mongoose.set("strictQuery", false);
+
 app.listen(PORT, () => console.log(`started on ${PORT}`));
