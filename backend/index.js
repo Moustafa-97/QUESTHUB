@@ -28,9 +28,9 @@ app.use(
     {
       origin: "https://questhub-ten.vercel.app",
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-      allowedHeaders: ["Content-Type", "Authorization"],
+      // allowedHeaders: ["Content-Type", "Authorization"],
       exposedHeaders: ["Content-Range", "X-Content-Range"],
-      preflightContinue: true,
+      preflightContinue: false,
       optionsSuccessStatus: 204,
       credentials: true,
       
