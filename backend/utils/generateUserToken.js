@@ -10,7 +10,7 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     path:"/",
     maxAge: maxAge,
     httpOnly: true,
-    //secure: true,
-    sameSite: "lax",
+    secure: true,
+    sameSite: "Lax",
   });
 };
