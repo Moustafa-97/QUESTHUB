@@ -79,23 +79,8 @@ module.exports.auth_user_login = async (req, res, next) => {
     const userLogin = await user.login(email, password);
 
     if (userLogin) {
-      // GenerateUserToken(res, userLogin._id);
-
-      const token = generateTokenById(userLogin._id);
-      if (!token) {
-        res.status(400);
-        throw new Error("plz try again later");
-      }
- console.log(res);
- 
-      // res.cookie("token", token, {
-      //   httpOnly: true,
-      //   path: "/",
-      //   secure: APP_MODE === "dev" ? false : true,
-      //   sameSite: "lax",
-      //   maxAge: 9 * 24 * 60 * 60 * 1000,
-      // });
-
+     await GenerateUserToken(res, userLogin._id);
+      
       res.status(200).json({
         user: userLogin,
         message: "Welcome Back",
