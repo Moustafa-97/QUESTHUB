@@ -6,6 +6,8 @@ module.exports.GenerateUserToken = (res, ID, next) => {
 
   res.cookie(process.env.USER_TOKEN, token, {
    // withCredentials: true,
+    domain:".questhub-ek4w.vercel.app",
+    path:"/",
     maxAge: maxAge,
     httpOnly: true,
     secure: true,
