@@ -86,14 +86,15 @@ module.exports.auth_user_login = async (req, res, next) => {
         res.status(400);
         throw new Error("plz try again later");
       }
-
-      res.cookie("token", token, {
-        httpOnly: true,
-        path: "/",
-        secure: APP_MODE === "dev" ? false : true,
-        sameSite: "lax",
-        maxAge: 9 * 24 * 60 * 60 * 1000,
-      });
+ console.log(res);
+ 
+      // res.cookie("token", token, {
+      //   httpOnly: true,
+      //   path: "/",
+      //   secure: APP_MODE === "dev" ? false : true,
+      //   sameSite: "lax",
+      //   maxAge: 9 * 24 * 60 * 60 * 1000,
+      // });
 
       res.status(200).json({
         user: userLogin,
