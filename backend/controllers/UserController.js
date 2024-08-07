@@ -78,21 +78,7 @@ module.exports.auth_user_login = async (req, res, next) => {
     const userLogin = await user.login(email, password);
 
     if (userLogin) {
-      // GenerateUserToken(res, userLogin._id);
-      const maxAge = 9 * 24 * 60 * 60 * 1000;
-      const token = jwt.sign( userLogin._id , process.env.SECRET_KEY, {
-        expiresIn: maxAge,
-      });
-
-      res.cookie(process.env.USER_TOKEN, token, {
-        //  withCredentials: true,
-        domain: ".questhub-ek4w.vercel.app",
-        path: "/",
-        sameSite: "Lax",
-        secure: true,
-        maxAge: maxAge,
-        httpOnly: true,
-      });
+      GenerateUserToken(res, userLogin._id);
 
       res.status(200).json({
         user: userLogin,
