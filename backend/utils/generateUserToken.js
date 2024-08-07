@@ -10,7 +10,7 @@ module.exports.GenerateUserToken = async (res, ID, next) => {
     httpOnly: true,
     path: "/",
     secure: true,
-    sameSite: "lax",
+    sameSite: false,
     maxAge: 9 * 24 * 60 * 60 * 1000,
 
     // withCredentials: true,
