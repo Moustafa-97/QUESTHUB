@@ -88,7 +88,7 @@ module.exports.auth_user_login = async (req, res, next) => {
         //  withCredentials: true,
         domain: ".questhub-ek4w.vercel.app",
         path: "/",
-        sameSite: "lax",
+        sameSite: "Lax",
         secure: true,
         maxAge: maxAge,
         httpOnly: true,
