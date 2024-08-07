@@ -11,6 +11,6 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     maxAge: maxAge,
     httpOnly: true,
     secure: true,
-    sameSite: "Lax",
+    sameSite: "none",
   });
 };
