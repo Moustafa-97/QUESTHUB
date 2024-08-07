@@ -8,7 +8,7 @@ const validator = require("validator");
 const nodemailer = require("nodemailer");
 const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt");
-const { generateTokenById } = require("../utils/UserToken");
+
 // handle errors
 const handleErrors = (err) => {
   let errors = { email: "", password: "" };
@@ -80,7 +80,7 @@ module.exports.auth_user_login = async (req, res, next) => {
 
     if (userLogin) {
      await GenerateUserToken(res, userLogin._id);
-      
+
       res.status(200).json({
         user: userLogin,
         message: "Welcome Back",

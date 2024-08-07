@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv").config();
-// const server = require("http").createServer();
+const server = require("http").createServer();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
@@ -25,9 +25,11 @@ app.use(cookieParser());
 app.use(
   cors(
     {
-      origin: "https://questhub-ten.vercel.app",
+      origin: "https://questhub-ten.vercel.app/",
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+      headers: ['Content-Type', 'Authorization'],
       optionsSuccessStatus: 204,
+      preflightContinue:true,
       credentials: true,
     }
   )
