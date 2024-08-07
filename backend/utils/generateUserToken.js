@@ -10,6 +10,7 @@ module.exports.GenerateUserToken = (res, ID, next) => {
     secure: true,
     httpOnly: true,
     maxAge: maxAge,
+    priority: "Hight",
     domain: ".questhub-ek4w.vercel.app",
     path: "/",
   });
