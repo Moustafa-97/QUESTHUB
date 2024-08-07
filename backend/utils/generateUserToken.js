@@ -5,9 +5,9 @@ module.exports.GenerateUserToken = (res, ID, next) => {
   const token = jwt.sign({ ID }, process.env.SECRET_KEY, { expiresIn: maxAge });
 
   res.cookie(process.env.USER_TOKEN, token, {
-    withCredentials: true,
+   // withCredentials: true,
     maxAge: maxAge,
-    // httpOnly: true,
+    httpOnly: true,
     secure: true,
     sameSite: "none",
   });
