@@ -26,13 +26,14 @@ app.use(cookieParser());
 app.use(
   cors(
     {
-      origin: ["https://questhub-ten.vercel.app", "http://localhost:5173"],
+      origin: "https://questhub-ten.vercel.app",
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
       exposedHeaders: ["Content-Range", "X-Content-Range"],
       preflightContinue: true,
       optionsSuccessStatus: 204,
       credentials: true,
+      
     }
     // optionSuccessStatus: 200,
     // for cookies::
