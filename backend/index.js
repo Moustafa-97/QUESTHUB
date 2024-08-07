@@ -24,15 +24,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(
-  cors({
-    origin: ["https://questhub-ten.vercel.app", "http://localhost:5173"],
-    methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTION"],
-    // allowedHeaders: ["Content-Type", "Authorization"],
-    // exposedHeaders: ["Set-Cookie"],
-    optionSuccessStatus: 200,
+  cors(
+    {
+      origin: "https://questhub-ten.vercel.app",
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      preflightContinue: false,
+      optionsSuccessStatus: 204,
+      credentials: true,
+    }
+    // optionSuccessStatus: 200,
     // for cookies::
-    credentials: true,
-  })
+  )
 );
 
 app.use("/user", userRoutes);
