@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(
   cors(
     {
-      origin: "https://questhub-ten.vercel.app/",
+      origin: "https://questhub-ten.vercel.app",
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
       headers: ['Content-Type', 'Authorization'],
       optionsSuccessStatus: 204,
