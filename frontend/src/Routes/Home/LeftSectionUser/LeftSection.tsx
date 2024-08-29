@@ -106,7 +106,7 @@ export default function LeftSection() {
         width={"100%"}
         height={"100%"}
         display={"grid"}
-        gap={1}
+        gridTemplateColumns={"100%"}
         sx={{
           gridTemplateRows: "90% 10%",
           gridTemplateAreas: `"tasks"
@@ -116,139 +116,158 @@ export default function LeftSection() {
         {/* tasks */}
         <ul
           style={{
+            gridArea: "tasks",
             listStyle: "none",
             margin: "auto",
-            gridArea: "tasks",
             width: "100%",
             height: "100%",
             paddingBottom: "100px",
             paddingLeft: 0,
           }}
         >
-          {tasks && tasks.length > 0
-            ? tasks?.map((task) => (
-                <li
-                  key={task._id}
-                  style={{
-                    margin: "auto",
-                    width: "100%",
-                  }}
+          {tasks && tasks.length > 0 ? (
+            tasks?.map((task) => (
+              <li
+                key={task._id}
+                style={{
+                  margin: "auto",
+                  width: "100%",
+                }}
+              >
+                <Box
+                  display={"flex"}
+                  flexDirection={"column"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                  sx={{ cursor: "pointer" }}
                 >
-                  <Box
-                    // onClick={() => navigate(`/task/${task._id}`)}
-                    // width={{ md: "100%", xs: "100%" }}
-                    // height={{ md: "max-content", xs: "100%" }}
-                    display={"flex"}
-                    flexDirection={"column"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    // gap={{ md: 1, xs: 0.5 }}
-                    sx={{ cursor: "pointer" }}
+                  <Card
+                    sx={{
+                      borderRadius: "20px",
+                      mt: "20px",
+                      width: "100%",
+                      boxShadow: "0px 5px 10px",
+                      height: "100%",
+                    }}
+                    variant="outlined"
                   >
-                    <Card
+                    <Box
+                      onClick={() => navigate(`/task/${task._id}`)}
+                      width={"100%"}
                       sx={{
-                        borderRadius: "20px",
-                        mt: "20px",
-                        width: "100%",
-                        boxShadow: "0px 5px 10px",
-                        height: { md: "100%", xs: "100vh" },
+                        display: "flex",
+                        flexDirection: "column",
+                        m: "auto",
+                        justifyContent: { md: "start", xs: "space-between" },
+                        alignItems: "start",
                       }}
-                      variant="outlined"
+                      height={"100%"}
+                      textAlign={"start"}
                     >
-                      <Box
-                        onClick={() => navigate(`/task/${task._id}`)}
-                        width={"100%"}
+                      <CardContent
                         sx={{
+                          width: "100%",
                           display: "flex",
                           flexDirection: "column",
-                          m: "auto",
-                          justifyContent: { md: "start", xs: "space-between" },
+                          m: { md: "auto", xs: 0 },
+                          justifyContent: "start",
                           alignItems: "start",
                         }}
-                        height={"100%"}
-                        textAlign={"start"}
                       >
-                        <CardContent
-                          sx={{
+                        <div
+                          style={{
                             width: "100%",
                             display: "flex",
-                            flexDirection: "column",
-                            m: { md: "auto", xs: 0 },
-                            justifyContent: "start",
-                            alignItems: "start",
+                            justifyContent: "space-between",
+                            alignItems: "center",
                           }}
                         >
-                          <div
-                            style={{
-                              width: "100%",
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Typography
-                              variant="body1"
-                              component="span"
-                              fontSize={{ md: 20, xs: 15 }}
-                            >
-                              {task.taskTitle}
-                            </Typography>
-                            <Typography
-                              variant="body1"
-                              component="span"
-                              fontSize={{ md: 10, xs: 5 }}
-                              color={"text.secondary"}
-                            >
-                              Dead Line: {task?.endDate?.slice(0, 10)}
-                            </Typography>
-                          </div>
-
                           <Typography
-                            fontSize={{ md: 15, xs: 10 }}
-                            sx={{
-                              mb: 1.5,
-                              wordWrap: "break-word",
-                              wordBreak: "break-word",
-                            }}
-                            color="text.secondary"
+                            variant="body1"
+                            component="span"
+                            fontSize={{ md: 20, xs: 15 }}
                           >
-                            {task.taskDescription}
+                            {task.taskTitle}
                           </Typography>
+                          <Typography
+                            variant="body1"
+                            component="span"
+                            fontSize={{ md: 10, xs: 5 }}
+                            color={"text.secondary"}
+                          >
+                            Dead Line: {task?.endDate?.slice(0, 10)}
+                          </Typography>
+                        </div>
 
-                          <Typography variant="body2"></Typography>
-                        </CardContent>
-                      </Box>
-                      <CardActions>
-                        <Button
-                          size="small"
-                          onClick={() => {
-                            handleDoneTask(task._id);
+                        <Typography
+                          fontSize={{ md: 15, xs: 10 }}
+                          sx={{
+                            mb: 1.5,
+                            wordWrap: "break-word",
+                            wordBreak: "break-word",
                           }}
+                          color="text.secondary"
                         >
-                          <Done titleAccess="Done" />
-                        </Button>
-                        <Button
-                          size="small"
-                          onClick={() => {
-                            navigate("/profile");
-                          }}
-                        >
-                          <Edit titleAccess="Edit" />
-                        </Button>
-                        <Button
-                          size="small"
-                          onClick={() => {
-                            navigate(`/task/${task._id}`);
-                          }}
-                        >
-                          <Fullscreen titleAccess="Explore" />
-                        </Button>
-                      </CardActions>
-                    </Card>
-                  </Box>
-                </li>
-              ))
-            : null}
+                          {task.taskDescription}
+                        </Typography>
+
+                        <Typography variant="body2"></Typography>
+                      </CardContent>
+                    </Box>
+                    <CardActions>
+                      <Button
+                        size="small"
+                        onClick={() => {
+                          handleDoneTask(task._id);
+                        }}
+                      >
+                        <Done titleAccess="Done" />
+                      </Button>
+                      <Button
+                        size="small"
+                        onClick={() => {
+                          navigate("/profile");
+                        }}
+                      >
+                        <Edit titleAccess="Edit" />
+                      </Button>
+                      <Button
+                        size="small"
+                        onClick={() => {
+                          navigate(`/task/${task._id}`);
+                        }}
+                      >
+                        <Fullscreen titleAccess="Explore" />
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Box>
+              </li>
+            ))
+          ) : (
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              alignItems={"center"}
+              justifyContent={"center"}
+              height={"100%"}
+              width={"100%"}
+              textAlign={"center"}
+              color={"text.secondary"}
+              fontStyle={"italic"}
+              sx={{ cursor: "pointer" }}
+              onClick={() => navigate("/create")}
+            >
+              <Typography
+                variant="body1"
+                component="span"
+                fontSize={{ md: 20, xs: 15 }}
+                fontWeight={"bold"}
+              >
+                No tasks yet
+              </Typography>
+            </Box>
+          )}
         </ul>
 
         <Box

@@ -26,30 +26,24 @@ export default function UserHomePage() {
 
   return (
     <>
-      <Container>
-        <Box
-          width={"100%"}
-          minHeight={"100vh"}
-          display={"flex"}
-          flexDirection={{ md: "row", xs: "column" }}
-          alignItems={"start"}
-          justifyContent={"center"}
-          m={"auto"}
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "60% 40%",
-            gridTemplateRows: "auto",
-            gridGap: "10px",
-          }}
-        >
-          <Box width={{ md: "100%", xs: "100%" }} height={"100%"} margin={"auto"}> 
-            <LeftSection />
-          </Box>
-          <Box width={{ md: "100%", xs: "100%" }} height={"100%"} margin={"auto"} bgcolor="green">
-            <RightSection deadLines={deadLinesArray} focus={[]} />
-          </Box>
+      {/* <Container> */}
+      <Box
+        m={"auto"}
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { md: "60% 40%", xs: "100%" },
+          gridTemplateRows: "auto",
+          gridGap: { md: "10px", xs: "20px" },
+        }}
+      >
+        <Box width={{ md: "100%", xs: "100%" }} height={"100%"} margin={"auto"}>
+          <LeftSection />
         </Box>
-      </Container>
+        <Box width={"100%"} height={"100%"} margin={"auto"} mt={0}>
+          <RightSection deadLines={deadLinesArray} focus={[]} />
+        </Box>
+      </Box>
+      {/* </Container> */}
     </>
   );
 }

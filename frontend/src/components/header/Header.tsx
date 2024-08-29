@@ -79,6 +79,8 @@ function ScrollTop(props: Props) {
     }
   };
 
+    
+
   return (
     <Fade in={trigger}>
       <Box

@@ -109,7 +109,7 @@ export default function CalendarPreview(props: Props) {
   );
 
   return (
-    <Box sx={{ minWidth: "100%" }}>
+    <Box>
       <Card
         sx={{
           borderRadius: "20px",

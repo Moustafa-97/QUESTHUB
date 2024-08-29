@@ -89,7 +89,7 @@ export default function ProfilePreview() {
     </Box>
   );
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ }}>
       <Card
         sx={{
           borderRadius: "20px",

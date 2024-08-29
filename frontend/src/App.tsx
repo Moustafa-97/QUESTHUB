@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { useEffect, useMemo } from "react";
 import { createTheme, CssBaseline, PaletteMode } from "@mui/material";
-import { blueGrey, teal } from "@mui/material/colors";
+import { blueGrey, grey, teal } from "@mui/material/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode } from "./Redux/Tools/ThemeMode";
 import MainApp from "./Routes/MainApp";
@@ -23,15 +23,15 @@ const getDesignTokens = (mode: PaletteMode) => ({
     ...(mode === "light"
       ? {
           // palette values for light mode
-          primary: teal,
-          divider: teal[200],
+          primary: grey,
+          divider: grey[100],
           background: {
-            default: teal[50],
-            paper: teal[200],
+            default: grey[300],
+            paper: grey[200],
           },
           text: {
-            primary: teal[900],
-            secondary: teal[500],
+            primary: grey[900],
+            secondary: grey[500],
           },
         }
       : {

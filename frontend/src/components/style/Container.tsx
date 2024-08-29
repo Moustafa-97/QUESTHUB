@@ -7,8 +7,8 @@ interface Props {
 export default function Container(props: Props) {
   return (
     <>
-      <Box width="100%" minHeight="100vh">
-        <Box width="90%" minHeight="90vh" margin="auto">
+      <Box width="100%" minHeight="90vh" mt={0}>
+        <Box width="90%" minHeight="80vh" margin="auto">
           {props.children}
         </Box>
       </Box>

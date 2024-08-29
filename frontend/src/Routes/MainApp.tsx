@@ -20,6 +20,7 @@ import AddTask from "./Tasks/addNewTask/AddTask";
 import ForgetPassword from "./Login/forgetPassword/ForgetPassword";
 import Otp from "./Login/forgetPassword/otp/Otp";
 import AdminSettings from "./settings/AdminSettings";
+import Container from "../components/style/Container";
 
 interface Response {
   data: {
@@ -103,6 +104,7 @@ export default function MainApp() {
     <>
       <BrowserRouter>
         <Header>
+          <Container>
           <Routes>
             {isLogged ? (
               <Route index path={"/"} element={<UserHomePage />} />
@@ -123,6 +125,7 @@ export default function MainApp() {
             <Route index path={"/profile"} element={<Profile />} />
             <Route index path={"/settings"} element={<AdminSettings />} />
           </Routes>
+          </Container>
         </Header>
       </BrowserRouter>
     </>

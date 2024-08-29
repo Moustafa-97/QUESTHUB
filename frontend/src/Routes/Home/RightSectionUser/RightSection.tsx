@@ -12,18 +12,25 @@ export default function RightSection(props: Props) {
     <>
       <Box
         width={{ md: "100%", xs: "100%" }}
-        // height={"100vh"}
-        display={"flex"}
-        flexDirection={{ md: "column", xs: "column-reverse" }}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        gap={1}
-
+        height={"100%"}
+        sx={{
+          display: "grid",
+          gridTemplateRows: "50% 50%",
+          gridTemplateColumns: "auto",
+          gridTemplateAreas: `"profile"
+           "calendar"`,
+          gridGap: "2px",
+        }}
+        // gap={1}
       >
-        <Box width={{ md: "80%", xs: "100%" }}>
+        <Box width={"100%"} height={"100%"} gridArea={"profile"}>
           <ProfilePreview />
         </Box>
-        <Box width={{ md: "80%", xs: "100%" }}>
+        <Box
+          width={{ md: "100%", xs: "100%" }}
+          height={"100%"}
+          gridArea={"calendar"}
+        >
           <CalendarPreview deadLines={props.deadLines} focus={props.focus} />
         </Box>
       </Box>
