@@ -12,16 +12,6 @@ module.exports.GenerateUserToken = async (res, ID, next) => {
     secure: true,
     sameSite: "None",
     maxAge: 9 * 24 * 60 * 60 * 1000,
-
-    // withCredentials: true,
-    // sameSite: "Lax",
-    // secure: true,
-    // httpOnly: true,
-    // maxAge: maxAge,
-    // priority: "High",
-    // domain: ".questhub-ek4w.vercel.app",
-    // path: "/",
-    // crossOriginIsolated:true
   });
 
 };

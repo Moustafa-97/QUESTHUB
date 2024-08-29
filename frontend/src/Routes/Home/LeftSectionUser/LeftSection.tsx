@@ -102,141 +102,178 @@ export default function LeftSection() {
 
   return (
     <>
-      {tasks && tasks.length > 0
-        ? tasks?.map((task) => (
-            <Box key={task._id} height={{ md: "max-content", xs: "100vh" }}>
-              <Box
-                // onClick={() => navigate(`/task/${task._id}`)}
-                width={{ md: "100%", xs: "100%" }}
-                height={{ md: "max-content", xs: "100%" }}
-                display={"flex"}
-                flexDirection={"column"}
-                alignItems={"center"}
-                justifyContent={"center"}
-                gap={{ md: 1, xs: 0.5 }}
-                sx={{ cursor: "pointer" }}
-              >
-                <Card
-                  sx={{
-                    borderRadius: "20px",
-                    mt: "20px",
-                    width: "100%",
-                    boxShadow: "0px 5px 20px",
-                    height: { md: "100%", xs: "100vh" },
-                  }}
-                  variant="outlined"
-                >
-                  <Box
-                    onClick={() => navigate(`/task/${task._id}`)}
-                    width={"100%"}
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      m: "auto",
-                      justifyContent: { md: "start", xs: "space-between" },
-                      alignItems: "start",
-                    }}
-                    height={"100%"}
-                    textAlign={"start"}
-                  >
-                    <CardContent
-                      sx={{
-                        width: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        m: { md: "auto", xs: 0 },
-                        justifyContent: "start",
-                        alignItems: "start",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Typography
-                          variant="body1"
-                          component="span"
-                          fontSize={{ md: 20, xs: 15 }}
-                        >
-                          {task.taskTitle}
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          component="span"
-                          fontSize={{ md: 10, xs: 5 }}
-                          color={"text.secondary"}
-                        >
-                          Dead Line: {task?.endDate?.slice(0, 10)}
-                        </Typography>
-                      </div>
-
-                      <Typography
-                        fontSize={{ md: 15, xs: 10 }}
-                        sx={{ mb: 1.5, wordWrap:"break-word", wordBreak:"break-word" }}
-                        color="text.secondary"
-                      >
-                        {task.taskDescription}
-                      </Typography>
-
-                      <Typography variant="body2"></Typography>
-                    </CardContent>
-                  </Box>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      onClick={() => {
-                        handleDoneTask(task._id);
-                      }}
-                    >
-                      <Done titleAccess="Done" />
-                    </Button>
-                    <Button
-                      size="small"
-                      onClick={() => {
-                        navigate("/profile");
-                      }}
-                    >
-                      <Edit titleAccess="Edit" />
-                    </Button>
-                    <Button
-                      size="small"
-                      onClick={() => {
-                        navigate(`/task/${task._id}`);
-                      }}
-                    >
-                      <Fullscreen titleAccess="Explore" />
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Box>
-            </Box>
-          ))
-        : null}
       <Box
-        width={{ md: "100%", xs: "100%" }}
-        display={"flex"}
-        flexDirection={"column"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        gap={{ md: 1, xs: 0.5 }}
+        width={"100%"}
+        height={"100%"}
+        display={"grid"}
+        gap={1}
+        sx={{
+          gridTemplateRows: "90% 10%",
+          gridTemplateAreas: `"tasks"
+          "add"`,
+        }}
       >
-        <Button
-          sx={{
-            bgcolor: "background.paper",
-            borderRadius: "50%",
-            mt: "20px",
-            boxShadow: "0px 5px 10px",
-          }}
-          onClick={() => {
-            navigate("/create");
+        {/* tasks */}
+        <ul
+          style={{
+            listStyle: "none",
+            margin: "auto",
+            gridArea: "tasks",
+            width: "100%",
+            height: "100%",
+            paddingBottom: "100px",
+            paddingLeft: 0,
           }}
         >
-          <Add titleAccess="Add new task" />
-        </Button>
+          {tasks && tasks.length > 0
+            ? tasks?.map((task) => (
+                <li
+                  key={task._id}
+                  style={{
+                    margin: "auto",
+                    width: "100%",
+                  }}
+                >
+                  <Box
+                    // onClick={() => navigate(`/task/${task._id}`)}
+                    // width={{ md: "100%", xs: "100%" }}
+                    // height={{ md: "max-content", xs: "100%" }}
+                    display={"flex"}
+                    flexDirection={"column"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    // gap={{ md: 1, xs: 0.5 }}
+                    sx={{ cursor: "pointer" }}
+                  >
+                    <Card
+                      sx={{
+                        borderRadius: "20px",
+                        mt: "20px",
+                        width: "100%",
+                        boxShadow: "0px 5px 10px",
+                        height: { md: "100%", xs: "100vh" },
+                      }}
+                      variant="outlined"
+                    >
+                      <Box
+                        onClick={() => navigate(`/task/${task._id}`)}
+                        width={"100%"}
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          m: "auto",
+                          justifyContent: { md: "start", xs: "space-between" },
+                          alignItems: "start",
+                        }}
+                        height={"100%"}
+                        textAlign={"start"}
+                      >
+                        <CardContent
+                          sx={{
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            m: { md: "auto", xs: 0 },
+                            justifyContent: "start",
+                            alignItems: "start",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "100%",
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Typography
+                              variant="body1"
+                              component="span"
+                              fontSize={{ md: 20, xs: 15 }}
+                            >
+                              {task.taskTitle}
+                            </Typography>
+                            <Typography
+                              variant="body1"
+                              component="span"
+                              fontSize={{ md: 10, xs: 5 }}
+                              color={"text.secondary"}
+                            >
+                              Dead Line: {task?.endDate?.slice(0, 10)}
+                            </Typography>
+                          </div>
+
+                          <Typography
+                            fontSize={{ md: 15, xs: 10 }}
+                            sx={{
+                              mb: 1.5,
+                              wordWrap: "break-word",
+                              wordBreak: "break-word",
+                            }}
+                            color="text.secondary"
+                          >
+                            {task.taskDescription}
+                          </Typography>
+
+                          <Typography variant="body2"></Typography>
+                        </CardContent>
+                      </Box>
+                      <CardActions>
+                        <Button
+                          size="small"
+                          onClick={() => {
+                            handleDoneTask(task._id);
+                          }}
+                        >
+                          <Done titleAccess="Done" />
+                        </Button>
+                        <Button
+                          size="small"
+                          onClick={() => {
+                            navigate("/profile");
+                          }}
+                        >
+                          <Edit titleAccess="Edit" />
+                        </Button>
+                        <Button
+                          size="small"
+                          onClick={() => {
+                            navigate(`/task/${task._id}`);
+                          }}
+                        >
+                          <Fullscreen titleAccess="Explore" />
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  </Box>
+                </li>
+              ))
+            : null}
+        </ul>
+
+        <Box
+          width={{ md: "100%", xs: "100%" }}
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          gap={{ md: 1, xs: 0.5 }}
+          gridArea={"add"}
+        >
+          <Button
+            sx={{
+              bgcolor: "background.paper",
+              borderRadius: "50%",
+              mt: "20px",
+              boxShadow: "0px 5px 10px",
+            }}
+            onClick={() => {
+              navigate("/create");
+            }}
+          >
+            <Add titleAccess="Add new task" />
+          </Button>
+        </Box>
       </Box>
       <Snackbar
         message={resMessage}

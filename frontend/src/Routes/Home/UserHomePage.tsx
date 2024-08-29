@@ -2,6 +2,7 @@ import RightSection from "./RightSectionUser/RightSection";
 import LeftSection from "./LeftSectionUser/LeftSection";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
+import Container from "../../components/style/Container";
 
 interface Props {
   tasks: {
@@ -25,22 +26,30 @@ export default function UserHomePage() {
 
   return (
     <>
-      <Box
-        width={"100%"}
-        minHeight={"100vh"}
-        display={"flex"}
-        flexDirection={{ md: "row", xs: "column" }}
-        alignItems={"start"}
-        justifyContent={"center"}
-        m={"auto"}
-      >
-        <Box width={{ md: "55%", xs: "100%" }}>
-          <LeftSection />
+      <Container>
+        <Box
+          width={"100%"}
+          minHeight={"100vh"}
+          display={"flex"}
+          flexDirection={{ md: "row", xs: "column" }}
+          alignItems={"start"}
+          justifyContent={"center"}
+          m={"auto"}
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "60% 40%",
+            gridTemplateRows: "auto",
+            gridGap: "10px",
+          }}
+        >
+          <Box width={{ md: "100%", xs: "100%" }} height={"100%"} margin={"auto"}> 
+            <LeftSection />
+          </Box>
+          <Box width={{ md: "100%", xs: "100%" }} height={"100%"} margin={"auto"} bgcolor="green">
+            <RightSection deadLines={deadLinesArray} focus={[]} />
+          </Box>
         </Box>
-        <Box width={{ md: "45%", xs: "100%" }}>
-          <RightSection deadLines={deadLinesArray} focus={[]} />
-        </Box>
-      </Box>
+      </Container>
     </>
   );
 }
