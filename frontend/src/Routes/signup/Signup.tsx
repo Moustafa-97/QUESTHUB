@@ -159,7 +159,7 @@ export default function Signup() {
             component="form"
             noValidate
             sx={{
-              width: "50%",
+              width: { md: "60%", xs: "80%" },
               height: "100%",
               m: "auto",
               marginTop: 8,
